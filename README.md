@@ -1,5 +1,10 @@
 # DSA
-Topics : Linked list
-         Binery search
-         Tree
-         
+
+Topics :-
+
+Linked list
+        
+Binery search
+
+Tree
+
