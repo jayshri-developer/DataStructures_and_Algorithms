@@ -1,10 +1,7 @@
 # DSA
-
-Topics :-
-
+Topics : 
 Linked list
         
 Binery search
 
 Tree
-
