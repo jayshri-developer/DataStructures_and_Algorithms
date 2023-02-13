@@ -1,5 +1,5 @@
 // Approach 1
-//GFG link: 
+//GFG link: https://practice.geeksforgeeks.org/problems/unique-partitions1041/1
 // TC: O(N)
 
 class Solution{
