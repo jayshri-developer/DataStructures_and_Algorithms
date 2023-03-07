@@ -1,11 +1,12 @@
 // Approach 1
-//GFG link: https://leetcode.com/problems/binary-tree-level-order-traversal/description/
-// TC: O(N)
+//GFG link: https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
+// TC: O(N)+o(n)
 
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
+    vector<vector<int>> levelOrderBottom(TreeNode* root) {
         vector<vector<int>> ans;
+
         if(root == NULL)
         {
             return ans;
@@ -17,8 +18,8 @@ public:
         while(!q.empty())
         {
             vector<int> curr;
-
             int s = q.size();
+
             for(int i = 0; i<s; i++)
             {
                 TreeNode* f = q.front();
@@ -26,13 +27,13 @@ public:
 
                 curr.push_back(f->val);
 
-                if(f->left){  q.push(f->left);  }
+                if(f->left) { q.push(f->left); }
+                if(f->right) { q.push(f->right); }
 
-                if(f->right){   q.push(f->right);  }
             }
             ans.push_back(curr);
         }
-
-    return ans;
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };

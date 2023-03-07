@@ -1,10 +1,10 @@
 // Approach 1
-//GFG link: https://leetcode.com/problems/binary-tree-level-order-traversal/description/
+//GFG link: https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
 // TC: O(N)
 
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> ans;
         if(root == NULL)
         {
@@ -29,6 +29,10 @@ public:
                 if(f->left){  q.push(f->left);  }
 
                 if(f->right){   q.push(f->right);  }
+            }
+            if(ans.size() % 2 == 1)
+            {
+                reverse(curr.begin(), curr.end());
             }
             ans.push_back(curr);
         }
