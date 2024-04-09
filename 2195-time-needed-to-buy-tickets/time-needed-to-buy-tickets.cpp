@@ -4,21 +4,21 @@
 // Space: O(1)
 class Solution {
 public:
-    int timeRequiredToBuy(vector<int>& A, int k) {
-        int step = 0;
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int count = 0;
         while (true) 
         {
-            for (int i = 0; i < A.size(); ++i) 
+            for (int i = 0; i < tickets.size(); i++) 
             {
-                if (A[i] == 0) 
+                if (tickets[i] == 0) 
                 {
                     continue;
                 }
-                A[i]--;
-                step++;
-                if (A[k] == 0) 
+                tickets[i]--;
+                count++;
+                if (tickets[k] == 0) 
                 {
-                    return step;
+                    return count;
                 }
             }
         }
