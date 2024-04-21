@@ -21,7 +21,7 @@ public:
             {
                 return 1;
             }
-            for(auto &node : mp[curr])
+            for(auto node : mp[curr])
             {
                 if(!vis[node])
                 {
