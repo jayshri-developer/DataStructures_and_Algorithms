@@ -5,6 +5,7 @@ void helper(vector<int> &nums, vector<int> &ans, vector<vector<int>> &final, int
     if(index == nums.size())
     {
         final.push_back(ans);
+        // final.push_back;
         return;
     }
 
