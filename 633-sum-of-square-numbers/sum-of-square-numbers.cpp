@@ -1,17 +1,28 @@
+#define ll long long
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        long long i=0;
-        long long j=sqrt(c);
-        while(i<=j){
-            long long sum=i*i+j*j;
-            if(sum==c){
-                return true;
+        
+        long long start = 0;
+        long long  end = sqrt(c);
+        
+
+        while(start <= end)
+        {
+            long long ans = (start * start) + (end * end);
+            // cout<<ans;
+            if(ans < c)
+            {
+                start++;
             }
-            else if(sum>c){
-                j--;
+            else if(ans > c)
+            {
+                end--;
             }
-            else i++;
+            else
+            {
+                 return true;
+            }
         }
         return false;
     }
