@@ -8,16 +8,15 @@ public:
 
         while(i < j)
         {
-            ans = min(height[i], height[j]) * (j-i);
-            // cout<<ans<<"->";
+            ans = min(height[i] , height[j]) * (j-i);
             result = max(result, ans);
-            if(height[i] >= height[j])
+            if(height[i] < height[j])
             {
-                j--;
+                i++;
             }
             else
             {
-                i++;
+                j--;
             }
         }
         return result;
