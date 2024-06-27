@@ -10,10 +10,10 @@ public:
             {
                 ans.push_back(tolower(s[i])); 
             }
-            // else
-            // {
-            //     continue;
-            // }
+            else
+            {
+                continue;
+            }
         }
     
 
