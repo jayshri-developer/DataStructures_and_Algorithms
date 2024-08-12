@@ -20,7 +20,7 @@ public:
             slow = slow->next;
             fast = fast->next;
 
-            if(fast->next != NULL)
+            if(fast != NULL)
             {
                 fast = fast->next;
             }
