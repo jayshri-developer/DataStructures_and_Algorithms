@@ -1,18 +1,20 @@
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        unordered_map<int, vector<int>> mp;
+        unordered_map<int, vector<int>> graph;
 
-        for(auto it : edges)
+        for(auto e : edges)
         {
-            mp[it[0]].push_back(it[1]);
-            mp[it[1]].push_back(it[0]);
+            graph[e[0]].push_back(e[1]);
+            graph[e[1]].push_back(e[0]);
         }
 
         vector<bool> vis(n, 0);
         queue<int> q;
+
         q.push(source);
         vis[source] = 1;
+
         while(!q.empty())
         {
             int curr = q.front();
@@ -21,7 +23,7 @@ public:
             {
                 return 1;
             }
-            for(auto node : mp[curr])
+            for(auto &node : graph[curr])
             {
                 if(!vis[node])
                 {
