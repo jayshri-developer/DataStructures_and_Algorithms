@@ -23,7 +23,7 @@ public:
             {
                 return 1;
             }
-            for(auto &node : graph[curr])
+            for(auto node : graph[curr])
             {
                 if(!vis[node])
                 {
