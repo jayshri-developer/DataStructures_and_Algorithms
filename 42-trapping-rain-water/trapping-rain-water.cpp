@@ -1,28 +1,30 @@
-class Solution
-{
+class Solution {
 public:
-    int trap(vector<int> &height)
-    {
-        int n = height.size(); 
-        int water = 0;        
-        vector<int> stack;   
-    
-        for (int right = 0; right < n; right++)
+    int trap(vector<int>& height) {
+
+        int n = height.size();
+        int start = 0;
+        int end = n-1;
+        int left_max = height[start];
+        int right_max = height[end];
+        int ans = 0;
+
+        while(start < end)
         {
-            while (!stack.empty() && height[stack.back()] < height[right])
+            if(left_max <= right_max)
             {
-                int mid = stack.back(); 
-                stack.pop_back();       
-                // If the stack becomes empty, no more water can be trapped
-                if (stack.empty())
-                    break;
-                int left = stack.back();                                                      // Get the index of the next height from the top of the stack
-                int minHeight = min(height[right] - height[mid], height[left] - height[mid]); // Calculate the minimum height of the two borders
-                int width = right - left - 1;                                                 // Calculate the width between the left and right borders
-                water += minHeight * width;                                                   // Calculate the trapped water volume and add it to the total
+                ans = ans + (left_max - height[start]);
+                start++;
+                left_max = max(left_max, height[start]);
             }
-            stack.push_back(right); // Push the current index onto the stack
+            else
+            {
+                ans = ans + (right_max - height[end]);
+                end--;
+                right_max = max(right_max, height[end]);
+            }
         }
-        return water; // Return the total trapped water volume
+        return ans;
+        
     }
 };
