@@ -1,29 +1,26 @@
 class Solution {
 public:
+vector<int> ans;
+void help(int i, int n)
+{
+    if(i > n)
+    {
+        return;
+    }
+    int curr = i;
+    ans.push_back(curr);
+
+    for(int i = 0; i <= 9; i++)
+    {
+        string temp = to_string(curr) + to_string(i);
+        help(stoi(temp), n);
+    }
+}
     vector<int> lexicalOrder(int n) {
-        vector<int> ans(n);
-        int x = 1;
-        for(int i = 0; i < n; i++)
+        
+        for(int i = 1; i <= 9; i++)
         {
-            ans[i] = x;
-
-            if(x*10 > n)
-            {
-                if(x == n)
-                {
-                    x/=10;
-                }
-                x++;
-
-                while(x%10 == 0)
-                {
-                    x/=10;
-                }
-            }
-            else
-            {
-                x = x * 10;
-            }
+            help(i, n);
         }
         return ans;
     }
