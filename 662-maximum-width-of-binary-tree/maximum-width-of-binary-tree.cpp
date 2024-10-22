@@ -27,7 +27,7 @@ public:
         {
             int n = q.size();
             int ele = q.front().second;
-            int l = 0;
+            
             int root1 = 0;
             int root2 = 0;
 
