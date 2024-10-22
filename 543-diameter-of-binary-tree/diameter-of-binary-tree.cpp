@@ -18,9 +18,19 @@ int helper(TreeNode* root)
     {
         return NULL;
     }
+    int leftside =0;
+    int rightside=0;
 
-    int leftside = helper(root->left);
-    int rightside =  helper(root->right);
+    if(root->left)
+    {
+        leftside = helper(root->left);
+    }
+    if(root->right)
+    {
+        rightside =  helper(root->right);
+    }
+    // int leftside = helper(root->left);
+    // int rightside =  helper(root->right);
 
     result = max(result, 1+ leftside + rightside);
 
