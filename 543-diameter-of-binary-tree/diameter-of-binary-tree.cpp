@@ -32,12 +32,12 @@ int helper(TreeNode* root)
     // int leftside = helper(root->left);
     // int rightside =  helper(root->right);
 
-    result = max(result, 1+ leftside + rightside);
+    result = max(result,  leftside + rightside);
 
     return 1+ max(leftside, rightside);
 }
     int diameterOfBinaryTree(TreeNode* root) {
         helper(root);
-        return result-1;    
+        return result;    
     }
 };
